@@ -1,3 +1,4 @@
+import 'package:alubank/themes/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -10,15 +11,11 @@ class Header extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: <Color>[
-            Color.fromRGBO(103, 99, 234, 1),
-            Color.fromRGBO(155, 105, 254, 1),
-            Color.fromRGBO(195, 107, 255, 1)
-          ],
+          colors: ThemeColors.headerGradient,
         ),
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
       ),
-      child: const Padding(
+      child: Padding(
         padding: EdgeInsets.fromLTRB(16.0, 80.0, 16.0, 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,26 +23,13 @@ class Header extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text.rich(TextSpan(
-                    text: '\$',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: '1000.00',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ])),
-                Text(
-                  'Balanço disponível',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
+                Text.rich(TextSpan(text: '\$', children: <TextSpan>[
+                  TextSpan(
+                    text: '1000.00',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  )
+                ])),
+                Text('Balanço disponível'),
               ],
             ),
             Icon(
